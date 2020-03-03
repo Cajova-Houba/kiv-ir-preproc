@@ -1,7 +1,9 @@
 package cz.zcu.kiv.nlp.ir;
 
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by Tigi on 29.2.2016.
@@ -34,7 +36,6 @@ public class BasicPreprocessing implements Preprocessing {
             document = removeAccents(document);
         }
         for (String token : tokenizer.tokenize(document)) {
-            String origToken = token;
             if(stopwords != null && stopwords.contains(token)) {
                 continue;
             }
