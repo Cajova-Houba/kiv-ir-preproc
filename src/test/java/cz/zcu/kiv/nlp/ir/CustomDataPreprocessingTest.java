@@ -1,20 +1,23 @@
 package cz.zcu.kiv.nlp.ir;
 
-import me.champeau.ld.EuroparlDetector;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class CustomDataPreprocessingTest {
 
@@ -56,16 +59,6 @@ public class CustomDataPreprocessingTest {
         ClassLoader classLoader = CustomDataPreprocessingTest.class.getClassLoader();
         File file = new File(classLoader.getResource(STOPWORDS_EN_FILENAME).getFile());
         return Files.readAllLines(file.toPath());
-    }
-
-    @Test
-    public void testDetectLanguage() throws IOException {
-        String expectedLanguage = "en";
-
-        EuroparlDetector detector = EuroparlDetector.getInstance();
-        String language = detector.detectLang(wholeText);
-
-        assertEquals("Wrong language!", expectedLanguage, language);
     }
 
     @Test

@@ -35,14 +35,6 @@ public class PreprocessingTest {
     }
 
     private static void createNewInstance() throws IOException {
-//        preprocessing = new BasicPreprocessing(
-//                new CzechStemmerLight(), new BasicTokenizer(" "), null, false, true, true
-//        );
-
-//        preprocessing = new BasicPreprocessing(
-//                new CzechStemmerLight(), new BasicTokenizer("\\s+"), null, false, true, true
-//        );
-
         List<String> stopWords = Files.readAllLines(Paths.get("stopwords.txt"));
         preprocessing = new BasicPreprocessing(
                 new CzechStemmerAgressive(), new AdvancedTokenizer(), new HashSet<>(stopWords), false, true, true
