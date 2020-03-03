@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
  * @author Michal Konkol
  */
 public class AdvancedTokenizer implements Tokenizer {
-    // link | kombinace pismen, znaku a cisel zacinajici pismenem | kombinace cisel, *, x, . zacinajici cislem | html | tecky a sracky |
-    public static final String defaultRegex = "(http://[\\p{L}\\d:/.?=&+*-]+)|(\\p{L}[\\p{L}\\d:/?=&+*-]+)|(\\d[\\d*x.]+)|(<.*?>)|([\\p{Punct}])";
+    // link | kombinace pismen, znaku a cisel zacinajici pismenem | kombinace cisel, *, x, . zacinajici cislem | html | tecky a interpunkce |
+    public static final String defaultRegex = "(http[s]?://[\\p{L}\\d:/.?=&+*-_]+)|(\\p{L}[\\p{L}\\d:/?=&+*-]+)|(\\d[\\d*x.]+)|(<.*?>)|([\\p{Punct}])";
 
     public static String[] tokenize(String text, String regex) {
         Pattern pattern = Pattern.compile(regex);

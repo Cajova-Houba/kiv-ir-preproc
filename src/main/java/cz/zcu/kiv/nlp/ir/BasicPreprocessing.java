@@ -34,6 +34,7 @@ public class BasicPreprocessing implements Preprocessing {
             document = removeAccents(document);
         }
         for (String token : tokenizer.tokenize(document)) {
+            String origToken = token;
             if(stopwords != null && stopwords.contains(token)) {
                 continue;
             }
