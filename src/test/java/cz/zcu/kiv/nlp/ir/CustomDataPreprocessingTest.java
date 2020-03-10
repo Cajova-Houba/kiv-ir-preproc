@@ -89,11 +89,7 @@ public class CustomDataPreprocessingTest {
         assertFalse(wordFrequencies.containsKey(preprocessing.getProcessedForm("because")));
 
         // 'hes' gets processed to 'he'
-//        assertFalse(wordFrequencies.containsKey(preprocessing.getProcessedForm("he")));
-
-        // 'his' gets processed to 'hi'
-//        assertFalse(wordFrequencies.containsKey(preprocessing.getProcessedForm("his")));
-
+        assertFalse(wordFrequencies.containsKey(preprocessing.getProcessedForm("he")));
     }
 
     /**
