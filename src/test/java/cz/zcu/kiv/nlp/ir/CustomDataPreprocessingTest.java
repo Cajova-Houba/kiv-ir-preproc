@@ -87,9 +87,21 @@ public class CustomDataPreprocessingTest {
         assertFalse(wordFrequencies.containsKey(preprocessing.getProcessedForm("i")));
         assertFalse(wordFrequencies.containsKey(preprocessing.getProcessedForm("themselves")));
         assertFalse(wordFrequencies.containsKey(preprocessing.getProcessedForm("because")));
-
-        // 'hes' gets processed to 'he'
         assertFalse(wordFrequencies.containsKey(preprocessing.getProcessedForm("he")));
+    }
+
+    @Test
+    public void testNoContractions() throws Exception {
+        createNewInstance();
+        for(String document : documents) {
+            preprocessing.index(document);
+        }
+        final Map<String, Integer> wordFrequencies = preprocessing.getWordFrequencies();
+
+        assertFalse(wordFrequencies.containsKey(preprocessing.getProcessedForm("we're")));
+        assertFalse(wordFrequencies.containsKey(preprocessing.getProcessedForm("you'll")));
+        assertFalse(wordFrequencies.containsKey(preprocessing.getProcessedForm("he'll")));
+        assertFalse(wordFrequencies.containsKey(preprocessing.getProcessedForm("should've")));
     }
 
     /**
